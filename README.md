@@ -1,4 +1,5 @@
 Bookstore Application
+
 Welcome to the Bookstore Application built using the Django framework. This application provides a user-friendly platform where users can register, sign in, and explore a variety of books. Whether you're a reader looking for your next favorite novel or an administrator managing the book catalog.
 
 * Features
