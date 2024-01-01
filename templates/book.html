@@ -1,0 +1,106 @@
+
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<style>
+   
+    #book-details {
+        background-color: rgb(232, 238, 240);
+        padding: 20px; 
+        margin: 20px 0;
+    }
+
+    #book-details table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    #book-details th, #book-details td {
+        border: 5px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #book-details th {
+        background-color: #f2f2f2;
+    }
+
+    #book-details h1 {
+        color: #333;
+    }
+
+    #book-details h2, #book-details h3, #book-details h4, #book-details h5 {
+        color: #666; 
+    }
+
+    #book-details p {
+        color: #444; 
+    }
+
+    #book-details a {
+        color: #007bff;
+        text-decoration: none; 
+        margin-right: 10px; 
+    }
+
+    #book-details a:hover {
+        color: #0056b3;
+    }
+</style>
+
+<div id="book-details">
+    <h1>{{page_title}}</h1>
+    
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Book ID</td>
+            <td>{{book.book_id}}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ book.title }}</td>
+        </tr>
+        <tr>
+            <td>Author</td>
+            <td>{{ book.author}}</td>
+        </tr>
+        <tr>
+            <td>Published On</td>
+            <td>{{book.publishedby_year}}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>{{ book.description}}</td>
+        </tr>
+        <tr>
+            <td>Rating</td>
+            <td>{{book.rating}}</td>
+        </tr>
+        <tr>
+            <td>Posted by</td>
+            <td>{{book.posted_by}}</td>
+        </tr>
+        <tr>
+            <td>Posted on</td>
+            <td>{{book.created_at}}</td>
+        </tr>
+        <tr>
+            <td>Last Updated</td>
+            <td>{{ book.updated_at}}</td>
+        </tr>
+    </table>
+
+    {% if book.posted_by == request.user %}
+        <h5><a href="{% url 'update_book' book.id %}">Edit Book</a></h5>
+        <h5><a href="{% url 'delete_book' book.id %}">Delete Book</a></h5>
+    {% endif %}
+</div>
+
+{% endblock %}

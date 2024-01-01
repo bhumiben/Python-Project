@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+   
+    h1 {
+        color: #007bff;
+    }
+
+    h2 {
+        color: #333; 
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    a:hover {
+        color: #0056b3; 
+    }
+
+    .book-container {
+        margin-bottom: 20px; 
+        border: 1px solid #ccc; 
+        padding: 10px; 
+        border-radius: 5px; 
+    }
+</style>
+
+<h1>{{ page_title }}</h1>
+
+{% if request.user.is_authenticated %}
+    <h2> {{ user.first_name|title }}</h2>
+{% endif %}
+
+{% for book in books %}
+    <div class="book-container">
+        <h3>Book {{ book.id }}</h3>
+        <a href="{% url 'book' book.id %}">{{ book.book_id }}. </a>
+        <a href="{% url 'book' book.id %}">{{ book.title }}</a>
+    </div>
+{% endfor %}
+
+{% endblock %}

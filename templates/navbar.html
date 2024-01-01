@@ -1,0 +1,41 @@
+<!-- Navbar to all pages -->
+<style>
+    #navbar {
+        background-color: #333;
+        padding: 10px; 
+        color: white; 
+        display: flex;
+        justify-content: space-between; 
+        align-items: center; 
+    }
+
+    #navbar a {
+        text-decoration: none; 
+        color: white; 
+        margin: 0 10px; 
+    }
+
+    #navbar a:hover {
+        color: #ffcc00; 
+    }
+</style>
+
+<div id="navbar">
+    <div>
+        <a href="/">Home Page</a>
+        <a href="/add_book">Add Book</a>
+       
+        <a href="/admin">Admin Page</a>
+        <a href="/api">Django Rest Framework</a>
+    </div>
+    
+    <div>
+        {% if request.user.is_authenticated %}
+            <a href="/logout">Logout</a>
+            
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>{{page_title}}</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label>ID:</label>
+        {{ form.book_id}}
+        <br>
+        <br>
+        <label>Name:</label>
+        {{ form.title}}
+        <br>
+        <br>
+        <label>Author:</label>
+        {{ form.author}}
+        <br>
+        <br>
+        <label>Published On:</label>
+        {{ form.publishedby_year}}
+        <br>
+        <br>
+        <label>Description:</label>
+        {{ form.description}}
+        <br>
+        <br>
+        <label>Rating:</label>
+        {{ form.rating}}
+        <br>
+        <br>
+        <button type="submit">Submit Book</button>
+    </form>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
